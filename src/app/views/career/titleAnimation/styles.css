@@ -1,0 +1,9 @@
+.linkedinBtn:hover {
+    border-color: rgb(10, 102, 194);
+    background-color: rgb(10, 102, 194, 0.4);
+}
+
+.githubBtn:hover {
+    border-color: rgb(118, 63, 199);
+    background-color: rgb(118, 63, 199, 0.4);
+}
