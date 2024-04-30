@@ -11,7 +11,7 @@ function Career() {
     const [careerHistoryIsHover, setCareerHistoryIsHover] = useState(false);
 
     return (
-        <Container maxWidth="lg" sx={{ padding: '0px !important', display: 'flex', flex: 1, flexDirection: 'column' }}>
+        <Container sx={{ padding: '0px !important', display: 'flex', flex: 1, flexDirection: 'column', }}>
             <Container
                 sx={{
                     padding: '0px !important',
