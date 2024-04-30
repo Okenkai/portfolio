@@ -18,12 +18,13 @@ function TitleAnimation() {
         <Container
             sx={{
                 maxWidth: 'fit-content',
-                display: 'flex', flex: 1,
+                display: 'flex',
+                flex: 1,
+                justifyContent: 'center'
             }}>
             <Box
                 sx={{
                     display: 'flex',
-                    flex: 1,
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center'

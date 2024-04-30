@@ -19,7 +19,6 @@ function Career() {
                     flex: 1,
                     minHeight: 400,
                     flexDirection: 'column',
-                    backgroundImage: 'linear-gradient( 136deg, rgb(33, 115, 242) 0%, rgb(0, 0, 0) 50%, rgb(64, 47, 124) 100%)'
                 }}>
                 <TitleAnimation />
             </Container>
