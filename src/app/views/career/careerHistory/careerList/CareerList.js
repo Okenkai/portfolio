@@ -22,11 +22,13 @@ const CareerList = () => {
                 {listItem[activeStep].map((item) =>
                     <ListItem key={item.primary}>
                         <ListItemIcon>
-                            <ArrowRightAltIcon />
+                            <ArrowRightAltIcon sx={{ color: '#ec4e47', }} />
                         </ListItemIcon>
                         <ListItemText
                             primary={item.primary}
                             secondary={item.secondary ? item.secondary : null}
+                            primaryTypographyProps={{ color: '#fff' }}
+                            secondaryTypographyProps={{ color: '#edc710' }}
                         />
                     </ListItem>,
                 )}

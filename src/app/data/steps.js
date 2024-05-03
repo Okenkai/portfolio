@@ -5,7 +5,7 @@ export const listItem = {
     0:
         [
             {
-                primary: 'Bac Pro Technicien menuisier agenceur',
+                primary: 'Technicien menuisier agenceur',
                 secondary: 'Baccalauréat Profésionnel'
             },
             {
