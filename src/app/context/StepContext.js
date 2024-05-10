@@ -10,6 +10,10 @@ export const useStep = () => useContext(stepContext);
 export const StepProvider = ({ children }) => {
     const [activeStep, setActiveStep] = useState(0);
 
+    const handleStep = (prop) => {
+        setActiveStep(prop);
+    }
+
     const handleStepNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
@@ -23,7 +27,7 @@ export const StepProvider = ({ children }) => {
     };
 
     return (
-        <stepContext.Provider value={{ activeStep, handleStepNext, handleStepBack, handleStepReset }}>
+        <stepContext.Provider value={{ activeStep, handleStep, handleStepNext, handleStepBack, handleStepReset }}>
             {children}
         </stepContext.Provider>
     );

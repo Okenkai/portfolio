@@ -142,7 +142,11 @@ function ColorlibStepIcon(props) {
     };
 
     return (
-        <ColorlibStepIconRoot ownerState={{ completed, active }} className={className}>
+        <ColorlibStepIconRoot
+            ownerState={{ completed, active }}
+            className={className}
+            sx={{ cursor: 'pointer' }}
+        >
             {icons[String(props.icon)]}
         </ColorlibStepIconRoot>
     );
@@ -170,22 +174,26 @@ const steps = ['Étudiant', 'Alternant', 'Professionnel'];
 
 function CareerStepper() {
     const matches = useMediaQuery('(min-width:600px)');
-    const { activeStep } = useStep();
+    const { activeStep, handleStep } = useStep();
 
     return (
         <Stack sx={{ width: '100%' }} spacing={4}>
             <Stepper alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />}>
-                {steps.map((label) => (
+                {steps.map((label, index) => (
                     <Step key={label}>
-                        <StepLabel StepIconComponent={ColorlibStepIcon}>
-                            <Typography sx={{
-                                fontFamily: 'monospace',
-                                fontSize: matches ? 18 : 12,
-                                letterSpacing: '.1rem',
-                                fontWeight: 1000,
-                                color: '#fff',
-                                textDecoration: 'none',
-                            }}>{label}</Typography>
+                        <StepLabel
+                            StepIconComponent={ColorlibStepIcon}
+                            onClick={() => handleStep(index)}
+                        >
+                            <Typography
+                                sx={{
+                                    fontFamily: 'monospace',
+                                    fontSize: matches ? 18 : 12,
+                                    letterSpacing: '.1rem',
+                                    fontWeight: 1000,
+                                    color: '#fff',
+                                    textDecoration: 'none',
+                                }}>{label}</Typography>
                         </StepLabel>
                     </Step>
                 ))}
