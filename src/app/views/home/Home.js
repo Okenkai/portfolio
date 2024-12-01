@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Career from "@views/career/Career";
+import Degree from "@views/degree/Degree";
 import { useNavigation } from "@context/NavigationContext";
 import NavBar from "@views/home/navBar/NavBar";
 
 const contents = {
     career: <Career />,
     // project: ProjectComponent,
-    // degree: DegreeComponent,
+    degree: <Degree />,
 };
 
 export default function Home() {

@@ -6,9 +6,11 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Check from '@mui/icons-material/Check';
-import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import SmartphoneIcon from '@mui/icons-material/Smartphone';
+import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
+import GroupIcon from '@mui/icons-material/Group';
 import LaptopChromebookIcon from '@mui/icons-material/LaptopChromebook';
-import StarsIcon from '@mui/icons-material/Stars';
+import SchoolIcon from '@mui/icons-material/School';
 import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector';
 import { Typography } from '@mui/material';
 import { useStep } from '@context/StepContext';
@@ -93,13 +95,13 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
     [`&.${stepConnectorClasses.active}`]: {
         [`& .${stepConnectorClasses.line}`]: {
             backgroundImage:
-                'linear-gradient(90deg, rgba(237,86,62,1) 0%, rgba(237,210,12,1) 100%)',
+                'linear-gradient(90deg, rgba(17,61,165,1) 0%, rgba(0,162,255,1) 100%)', // Dégradé bleu à cyan
         },
     },
     [`&.${stepConnectorClasses.completed}`]: {
         [`& .${stepConnectorClasses.line}`]: {
             backgroundImage:
-                'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+                'linear-gradient(90deg, rgba(94,23,163,1) 0%, rgba(255,105,180,1) 100%)', // Dégradé violet à rose
         },
     },
     [`& .${stepConnectorClasses.line}`]: {
@@ -110,6 +112,8 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
         borderRadius: 1,
     },
 }));
+
+
 
 const ColorlibStepIconRoot = styled('div')(({ theme, ownerState }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[700] : 'grey',
@@ -123,22 +127,26 @@ const ColorlibStepIconRoot = styled('div')(({ theme, ownerState }) => ({
     alignItems: 'center',
     ...(ownerState.active && {
         backgroundImage:
-            'linear-gradient(90deg, rgba(237,86,62,1) 0%, rgba(237,210,12,1) 100%)',
+            'linear-gradient(145deg, rgba(17,61,165,1) 0%, rgba(0,162,255,1) 100%)', // Dégradé bleu à cyan
         boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
     }),
     ...(ownerState.completed && {
         backgroundImage:
-            'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
+            'linear-gradient(145deg, rgba(94,23,163,1) 0%, rgba(255,105,180,1) 100%)', // Dégradé violet à rose
     }),
 }));
+
+
 
 function ColorlibStepIcon(props) {
     const { active, completed, className } = props;
 
     const icons = {
-        1: <AutoStoriesIcon />,
-        2: <LaptopChromebookIcon />,
-        3: <StarsIcon />,
+        1: <SchoolIcon />,
+        2: <HistoryEduIcon />,
+        3: <GroupIcon />,
+        4: <LaptopChromebookIcon />,
+        5: <SmartphoneIcon />,
     };
 
     return (
@@ -170,7 +178,7 @@ ColorlibStepIcon.propTypes = {
     icon: PropTypes.node,
 };
 
-const steps = ['Étudiant', 'Alternant', 'Professionnel'];
+const steps = [{ date: '2015', title: 'Baccalauréat' }, { date: '2016', title: 'Licence' }, { date: '2017', title: 'POP' }, { date: '2018', title: 'BTS' }, { date: '2020 - 2023', title: 'Master' }];
 
 function CareerStepper() {
     const matches = useMediaQuery('(min-width:600px)');
@@ -179,8 +187,8 @@ function CareerStepper() {
     return (
         <Stack sx={{ width: '100%' }} spacing={4}>
             <Stepper alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />}>
-                {steps.map((label, index) => (
-                    <Step key={label}>
+                {steps.map((step, index) => (
+                    <Step key={`key-${index}`}>
                         <StepLabel
                             StepIconComponent={ColorlibStepIcon}
                             onClick={() => handleStep(index)}
@@ -193,8 +201,13 @@ function CareerStepper() {
                                     fontWeight: 1000,
                                     color: '#fff',
                                     textDecoration: 'none',
-                                }}>{label}</Typography>
+                                }}>{step.date}</Typography>
                         </StepLabel>
+                        <Typography
+                            sx={{
+                                textAlign: 'center'
+                            }}
+                        >{step.title}</Typography>
                     </Step>
                 ))}
             </Stepper>

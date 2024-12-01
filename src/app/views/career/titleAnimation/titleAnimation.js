@@ -20,7 +20,7 @@ function TitleAnimation() {
                 maxWidth: 'fit-content',
                 display: 'flex',
                 flex: 1,
-                justifyContent: 'center'
+                justifyContent: 'center',
             }}>
             <Box
                 sx={{
