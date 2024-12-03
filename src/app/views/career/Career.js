@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
 import TitleAnimation from "./titleAnimation/titleAnimation";
-import CareerStepper from "./careerStepper/CareerStepper";
 import Container from '@mui/material/Container';
 import useMediaQuery from '@mui/material/useMediaQuery';
-
+import CareerStepper from "./careerStepper/CareerStepper";
 import { steps } from '@data/steps';
-import { useStep } from '@context/StepContext';
 import { Typography } from "@mui/material";
 import { Visibility } from "@mui/icons-material";
+import Try from "./try/try";
 
 
 function Career() {
     const matches = useMediaQuery('(min-width:600px)');
-    const { activeStep } = useStep();
     const [scrollPosition, setScrollPosition] = useState(0);
 
     const handleScroll = () => setScrollPosition(window.scrollY);
@@ -41,44 +39,14 @@ function Career() {
                 }}>
                 <TitleAnimation />
             </section>
-            <Container
-                maxWidth="lg"
-                sx={{
-                    display: 'flex',
-                    flex: 1,
-                    maxHeight: 450,
-                    flexDirection: 'column',
-                    marginTop: matches ? '80px' : '40px'
-                }}>
+            <section
+                style={{ padding: 24 }}
+            >
                 <CareerStepper />
-            </Container>
-            {/* <Container
-                maxWidth="lg"
-                sx={{
-                    display: 'flex',
-                    flex: 1,
-                    maxHeight: 450,
-                    flexDirection: 'column',
-                    marginTop: matches ? '80px' : '40px'
-                }}>
-                {steps.map((step, index) => {
-                    const description = step.description.map((e) => e.excerpt)
-                    return (
-                        <Container
-                            maxWidth='sm'
-                            sx={{
-                                display: activeStep === index ? 'block' : 'none',
-                                paddingBottom: '32px'
-
-                            }}>
-                            <Typography>
-                                {step.label}
-                            </Typography>
-                            {description}
-                        </Container>
-                    )
-                })}
-            </Container> */}
+            </section>
+            <section>
+                <Try />
+            </section>
         </Container>
     );
 }

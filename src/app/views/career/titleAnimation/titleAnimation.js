@@ -36,8 +36,9 @@ function TitleAnimation() {
                         fontFamily: 'monospace',
                         letterSpacing: '.1rem',
                         fontWeight: 1000,
-                        color: 'inherit',
-                        textDecoration: 'none',
+                        background: 'linear-gradient(90deg, rgba(17,61,165,1) 0%, rgba(0,162,255,1) 60%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
                     }}>
                     Le Programmeur
                 </Typography>
@@ -46,10 +47,17 @@ function TitleAnimation() {
                     sx={{
                         fontFamily: 'monospace',
                         fontWeight: 800,
-                        color: 'inherit',
+                        background: 'linear-gradient(90deg, rgba(17,61,165,1) 0%, rgba(0,162,255,1) 60%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
                         fontStyle: 'italic'
                     }}>
-                    Une machine qui transforme le café en code.
+                    Une machine qui transforme le café en <Typography variant="span" sx={{
+                        background: 'linear-gradient(145deg, rgba(94,23,163,1) 0%, rgba(255,105,180,1) 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        fontStyle: 'italic'
+                    }}>code.</Typography>
                 </Typography>
 
                 <Box sx={{

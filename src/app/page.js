@@ -1,7 +1,6 @@
 'use client'
 import styles from "./page.module.css";
 import { NavigationProvider } from "@context/NavigationContext";
-import { StepProvider } from "./context/StepContext";
 import Home from "@views/home/Home"
 import { StyledEngineProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
@@ -19,9 +18,7 @@ export default function Page() {
       <StyledEngineProvider injectFirst>
         <main className={styles.main}>
           <NavigationProvider>
-            <StepProvider>
-              <Home />
-            </StepProvider>
+            <Home />
           </NavigationProvider>
         </main>
       </StyledEngineProvider>
